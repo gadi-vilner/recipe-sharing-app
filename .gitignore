@@ -1,5 +1,24 @@
-venv/
-__pycache__/
-*.pyc
-.env
-# Add other files/folders like instance/, coverage reports, etc.
+# .gitignore in the project root
+
+# --- General ---
+.DS_Store
+*.env
+*.env.local
+*.env.production
+*.log
+
+# --- Python / FastAPI Backend ---
+/backend/venv/
+/backend/app/__pycache__/
+/backend/__pycache__/
+/backend/app/routers/__pycache__/
+
+# --- Node.js / Next.js Frontend ---
+/frontend/.next/
+/frontend/node_modules/
+/frontend/out/
+/frontend/build/
+
+# --- IDE / Editor specific ---
+.vscode/
+.idea/

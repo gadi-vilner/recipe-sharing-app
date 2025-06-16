@@ -4,11 +4,11 @@ services:
     image: postgres:15 # Or a more recent stable version
     restart: always
     environment:
-      POSTGRES_USER: your_db_user      # Replace with your desired user
-      POSTGRES_PASSWORD: your_db_password # Replace with your desired password
-      POSTGRES_DB: recipe_app_db       # Replace with your desired database name
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
-      - "5432:5432" # Maps port 5432 on your host to port 5432 in the container
+      - "${DB_PORT}:5432" # Maps port 5433 on your host to port 5432 in the container
     volumes:
       - postgres_data:/var/lib/postgresql/data # Persists data even if container stops
 
