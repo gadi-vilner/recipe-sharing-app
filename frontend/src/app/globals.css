@@ -1,0 +1,4 @@
+/* frontend/app/globals.css - NEW v4 SYNTAX */
+@import "tailwindcss/preflight";
+/*@import "tailwindcss/components"; /* <-- This line is causing the error */
+@import "tailwindcss/utilities";
