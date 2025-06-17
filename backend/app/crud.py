@@ -29,12 +29,14 @@ def create_user(db: Session, user: schemas.UserCreate, hashed_password: str):
     db.refresh(db_user)
     return db_user
 
+# In backend/app/crud.py
+
 def get_recipes(db: Session, skip: int = 0, limit: int = 100):
     """
-    Retrieve a list of recipes with pagination.
+    Retrieve a list of recipes with pagination, sorted by creation date.
     """
-    return db.query(models.Recipe).offset(skip).limit(limit).all()
-
+    return db.query(models.Recipe).order_by(models.Recipe.created_at.desc()).offset(skip).limit(limit).all()
+    
 def create_recipe(db: Session, recipe: schemas.RecipeCreate, owner: models.User):
     """
     Create a new recipe associated with a user object.
